@@ -1,7 +1,5 @@
 ![Screenshot 2025-01-31 at 9 55 01 AM](https://github.com/user-attachments/assets/0e63b895-1ac2-4e2b-82eb-1a90ceaac530)
 
-
-
 # Season Fruits - Landing Page  
 
 ## Tabla de Contenidos  
@@ -21,7 +19,7 @@
 
 - React.js 18.3
 - Bootstrap 5.3  
-- Vite ^6.0.5  
+- Vite 6.0.11
 - Node.js 22  
 - npm  
 
@@ -52,14 +50,17 @@ Para acceder a las imágenes almacenadas en Google Drive y visualizarlas correct
 3. **Generar una clave de API**  
    - Ve a **"APIs y servicios" > "Credenciales"**.  
    - Haz clic en **"Crear credenciales" > "Clave de API"**.  
-   - Copia la clave generada.  
+   - Copia la clave generada.
 
-4. **Agregar la clave al archivo `.env.example`**  
-   - En la raíz del proyecto, localiza el archivo .env.example y añade la clave en la variable correspondiente:  
+4. **Agregar la clave al archivo `.env.example` y renombrarlo a `.env`**  
+   - En la raíz del proyecto, localiza el archivo `.env.example` y añade el valor de la clave en la variable correspondiente:  
    ```env
    VITE_GOOGLE_DRIVE_API_KEY=
    ```
-
+   - Renómbralo a `.env`
+   ```bash
+      mv .env.example .env
+   ```
 
 ### 3️. Instalar las dependencias y ejecutar la app  
 
@@ -76,7 +77,7 @@ Para acceder a las imágenes almacenadas en Google Drive y visualizarlas correct
 #### **Método 2: Instalación con Docker**  
 Si prefieres ejecutar la aplicación con Docker, sigue estos pasos.  
 
-> **⚠️ Importante:** Antes de proceder, asegúrate de haber configurado la variable de entorno en el archivo `.env.example` para que la landing page funcione correctamente.  
+> **⚠️ Importante:** Antes de proceder, asegúrate de haber configurado la variable de entorno en el archivo `.env` para que la landing page funcione correctamente.  
 
 1. **Instalar Docker** en tu sistema.  
 2. **Ubicarse en la raíz del proyecto**.  
@@ -88,7 +89,6 @@ Si prefieres ejecutar la aplicación con Docker, sigue estos pasos.
    ```bash
    docker run -p 5173:5173 fruits
    ```
-
 ---
 
 ## Mejoras propuestas para la landing page
