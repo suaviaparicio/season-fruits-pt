@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import GeneralInfo from './components/GeneralInfo';
+import Filters from './components/Filters';
 import './App.css';
 
 const FRUIT_ENDPOINT = "https://api.allorigins.win/raw?url=https://fruityvice.com/api/fruit/all";
@@ -134,45 +136,18 @@ const App = () => {
       <div className="container mt-4">
         <h1>Season Fruits</h1>
         <h4 className="text-warning">THE MOST WONDERFUL FRUITS</h4>
-
         <div className="row g-4 align-items-start">
-
           <div className="col-12 col-lg-9">
             <div className='products'>
-              <div className='row align-items-center justify-content-end pb-3 pt-5 gap-3 gap-md-0'>
-                <div className='col-12 col-md-auto'>
-                  <div className="dropdown">
-                    <button className="btn active dropdown-toggle rounded-pill px-4 py-1 shadow-sm w-100 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span className='text-body-tertiary'>
-                        Filter by: {selectedFilter.charAt(0).toUpperCase() + selectedFilter.slice(1)}
-                      </span>
-                    </button>
-                    <ul className="dropdown-menu">
-                      {["family", "order", "genus"].map((category) => (
-                        <li key={category}>
-                          <button className="dropdown-item" onClick={() => handleFilterChange(category)}>
-                            {category.charAt(0).toUpperCase() + category.slice(1)}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>  
-                <div className='col-12 col-md-auto'>
-                  <input
-                    className="form-control rounded-pill px-4 py-1 shadow-sm w-100 border-black"
-                    type="text"
-                    placeholder={`Search by ${selectedFilter} 🔍`}
-                    value={searchTerm}
-                    onChange={handleSearch}
-                  />
-                </div>
-                <div className='col-12 col-md-auto'>
-                  <button type="button" className="btn btn-outline-dark rounded-pill px-4 py-1 shadow-sm fw-semibold w-100" onClick={handleSortToggle}>
-                    {orderAZ ? 'Order A - Z' : 'Order Z - A'}
-                  </button>
-                </div>
-              </div>
+
+              <Filters
+                selectedFilter={selectedFilter}
+                onFilterChange={handleFilterChange}
+                searchTerm={searchTerm}
+                onSearch={handleSearch}
+                onSortToggle={handleSortToggle}
+                orderAZ={orderAZ}
+              />
 
               <div className="row row-cols-1 row-cols-md-3 g-4">
                 {filteredData.slice(0, seeMore).map((fruit) => (
@@ -245,43 +220,8 @@ const App = () => {
             </div>
           </div>
 
-
           <div className='col-12 col-lg-3'>
-            <div className="general_information py-4 px-1 mt-4 ">
-              <div className="card p-3 shadow-sm rounded-4 text-start text-bg-light border-0">
-                <h5 className="text-warning fw-bold fs-5">General Information</h5>
-                <h4 className="mb-2 fs-6">
-                  <strong>No. Of Found Products:</strong>
-                  <span className="float-end">{filteredData.length}</span>
-                </h4>
-                <p className="mb-2 text-warning fs-6">
-                  <strong>Nutritional properties of found products:</strong>
-                </p>
-                <ul className="list-unstyled small">
-                  <li className="mb-2 d-flex justify-content-between">
-                    <span>Total calories:</span>
-                    <span>{totals.calories}</span>
-                  </li>
-                  <li className="mb-2 d-flex justify-content-between">
-                    <span>Total fats:</span>
-                    <span>{totals.fat}</span>
-                  </li>
-                  <li className="mb-2 d-flex justify-content-between">
-                    <span>Total sugar:</span>
-                    <span>{totals.sugar}</span>
-                  </li>
-                  <li className="mb-2 d-flex justify-content-between">
-                    <span>Total carbohydrates:</span>
-                    <span>{totals.carbohydrates}</span>
-                  </li>
-                  <li className="mb-2 d-flex justify-content-between">
-                    <span>Total proteins:</span>
-                    <span>{totals.protein}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
+            <GeneralInfo totals={totals} filteredData={filteredData}/>
           </div>
         </div>
       </div>
