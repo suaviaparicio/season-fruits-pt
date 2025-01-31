@@ -157,7 +157,7 @@ const App = () => {
                       ))}
                     </ul>
                   </div>
-                </div>
+                </div>  
                 <div className='col-12 col-md-auto'>
                   <input
                     className="form-control rounded-pill px-4 py-1 shadow-sm w-100 border-black"
@@ -178,7 +178,7 @@ const App = () => {
                 {filteredData.slice(0, seeMore).map((fruit) => (
                   <div className="col" key={fruit.id}>
                     <div className="card h-100 shadow border-0 rounded-4 p-0">
-                      <img src={fruit.image_url} className="card-img-top h-100 rounded-top-4" alt={fruit.name} />
+                      <img src={fruit.image_url} className="card-img-tops rounded-top-4" alt={fruit.name} />
                       <div className="card-body h-100 px-4">
                         <h5 className="row card-title text-warning text-start">{fruit.name}</h5>
                       </div>

@@ -1,44 +1,76 @@
-# React + Vite
+# Season Fruits - Landing Page  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tabla de Contenidos  
+1. [Tecnologías utilizadas](#tecnologías-utilizadas)  
+2. [Instalación y ejecución](#instalación-y-ejecución)  
+3. [Mejoras propuestas](#mejoras-propuestas)  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripción  
 
+**Season Fruits** es una landing page diseñada para mostrar información sobre frutas de temporada, incluyendo su valor nutricional y características principales. Los usuarios pueden explorar los productos y obtener detalles específicos según los requisitos funcionales de la aplicación.  
 
-Requisitos funcionales:
+---
 
-Debe consumir la API de uso gratuita fruityvice para obtener la información de cada producto ---> OK
+## Tecnologías utilizadas  
 
-Las imágenes de producto no vienen suministradas por la API, en el material suministrado encontrará una carpeta de imágenes nombradas con el nombre del producto suministrado por el endpoint, debe encontrar la forma de mostrar la imagen correspondiente a cada producto. Dado que no exista la imagen del producto, debe mostrar la imagen nombrada “not-available.webp” ---> OK
+- **Frontend:** React.js 18.3, Bootstrap 5.3  
+- **Herramienta de construcción:** Vite ^6.0.5  
+- **Backend:** Node.js 22  
+- **Gestor de paquetes:** npm  
 
-Cada tarjeta de producto debe mostrar la imagen y las propiedades e información nutricional descrita en el diseño. ---> OK
+---
 
-Cada tarjeta tiene un botón de “me gusta”, que al hacer clic en él debe guardar la preferencia del usuario.---> PENDIENTE
+## Instalación y ejecución  
 
-Se deben mostrar en una primera instancia 8 productos, al final del módulo hay un botón de “See more” el cual al hacer clic, debe cargar 4 productos más. ---> OK
+Sigue estos pasos para configurar el proyecto en tu entorno local:  
 
-El usuario podrá filtrar los productos dependiendo de su categoría (Family, Order, Genus) y el valor del dato a buscar. ---> OK
+### 1️. Clonar el repositorio  
+```bash
+git clone git@github.com:suaviaparicio/season-fruits-pt.git
+```
 
-El usuario podrá organizar las tarjetas por el nombre del producto en orden alfabético, de la A a la Z o de la Z a la A en un solo clic. ---> OK
+### 2️. Instalar dependencias  
+```bash
+npm install
+```
 
-La tabla de “General information” debe actualizarse con el número de productos filtrados / encontrados y mostrar la suma de los valores de las propiedades nutricionales de dichos productos. ---> OK
+### 3️. Configurar variables de entorno  
 
+Para acceder a las imágenes almacenadas en Google Drive, es necesario configurar una clave de API siguiendo estos pasos:  
 
-NO OLVIDAR PARA LA ENTREGA:
-Generar la API_KEY como variable de entorno con el paso a paso 
+#### Obtener clave de API de Google Drive  
+1. **Acceder a Google Cloud Console**  
+   - Inicia sesión en [Google Cloud Console](https://console.cloud.google.com/).  
+   - Crea un nuevo proyecto o selecciona uno existente.  
 
-Pendientes:
-- Optimización de imágenes
-- Separar los componentes
-- Responsive cuando hay un filtro y solo sale una card... no está conservando todo el espacio de la card
-- Cuando haga la busqueda y no encuentre resultados, los botones de los filtros deben permanecer en el mismo sitio. Se están yendo para el centro
-- Mejorar el icono de search
-- Borrar el archivo 'frutas.txt'
-- Cambiar la tabla de 'General information' para que cuando esté pequeña la imagen, quede en la parte superior y no en la inferior
-- Cambiar la font por una que se parezca más
+2. **Habilitar la API de Google Drive**  
+   - En el menú de navegación, ve a **"APIs y servicios" > "Biblioteca"**.  
+   - Busca **Google Drive API** y haz clic en **"Habilitar"**.  
 
-Instalaciones:
-- Bootstrap: npm install bootstrap (Validar si es necesario hacer esta instalación para que funcione el dropdown de los filtros)
+3. **Generar una clave de API**  
+   - Ve a **"APIs y servicios" > "Credenciales"**.  
+   - Haz clic en **"Crear credenciales" > "Clave de API"**.  
+   - Copia la clave generada.  
+
+4. **Agregar la clave al archivo `.env.example`**  
+   - En la raíz del proyecto, hay un archivo que se llama `.env.example`, agrega allí la clave generada en los pasos anteriores:  
+   ```env
+   VITE_GOOGLE_DRIVE_API_KEY=
+   ```
+
+### 4️. Ejecutar la aplicación  
+```bash
+npm run dev
+```
+
+---
+
+## Mejoras propuestas  
+
+- **Sumatoria en la tabla "General Information"**: Implementar el cálculo automático de la suma de los productos visibles en la paginación.  
+- **Persistencia del botón "Me gusta"**: Mantener el estado del botón incluso después de recargar la página.  
+- **Modo oscuro/claro**: Agregar un selector para mejorar la experiencia del usuario.  
+- **Mejoras en accesibilidad**: Aplicar estilos optimizados para garantizar la inclusión de todos los usuarios.  
+- **Soporte multilingüe**: Implementar una opción para cambiar el idioma de la aplicación.
