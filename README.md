@@ -15,30 +15,26 @@
 
 ## Tecnologías utilizadas  
 
-- **Frontend:** React.js 18.3, Bootstrap 5.3  
-- **Herramienta de construcción:** Vite ^6.0.5  
-- **Backend:** Node.js 22  
-- **Gestor de paquetes:** npm  
+- React.js 18.3
+- Bootstrap 5.3  
+- Vite ^6.0.5  
+- Node.js 22  
+- npm  
 
 ---
 
 ## Instalación y ejecución  
 
-Sigue estos pasos para configurar el proyecto en tu entorno local:  
+Sigue los siguientes pasos para configurar el proyecto en tu entorno local:  
 
 ### 1️. Clonar el repositorio  
 ```bash
 git clone git@github.com:suaviaparicio/season-fruits-pt.git
 ```
 
-### 2️. Instalar dependencias  
-```bash
-npm install
-```
+### 2. Configurar la variable de entorno
 
-### 3️. Configurar variables de entorno  
-
-Para acceder a las imágenes almacenadas en Google Drive, es necesario configurar una clave de API siguiendo estos pasos:  
+Para acceder a las imágenes almacenadas en Google Drive y visualizarlas correctamente en la landing page, es necesario configurar una clave de API siguiendo estos pasos:  
 
 #### Obtener clave de API de Google Drive  
 1. **Acceder a Google Cloud Console**  
@@ -55,22 +51,46 @@ Para acceder a las imágenes almacenadas en Google Drive, es necesario configura
    - Copia la clave generada.  
 
 4. **Agregar la clave al archivo `.env.example`**  
-   - En la raíz del proyecto, hay un archivo que se llama `.env.example`, agrega allí la clave generada en los pasos anteriores:  
+   - En la raíz del proyecto, localiza el archivo .env.example y añade la clave en la variable correspondiente:  
    ```env
    VITE_GOOGLE_DRIVE_API_KEY=
    ```
 
-### 4️. Ejecutar la aplicación  
-```bash
-npm run dev
-```
+
+### 3️. Instalar las dependencias y ejecutar la app  
+
+#### **Método 1: Instalación con npm**  
+1. Instalar las dependencias:  
+   ```bash
+   npm install
+   ```
+2. Ejecutar la aplicación:  
+   ```bash
+   npm run dev
+   ```
+
+#### **Método 2: Instalación con Docker**  
+Si prefieres ejecutar la aplicación con Docker, sigue estos pasos.  
+
+> **⚠️ Importante:** Antes de proceder, asegúrate de haber configurado la variable de entorno en el archivo `.env.example` para que la landing page funcione correctamente.  
+
+1. **Instalar Docker** en tu sistema.  
+2. **Ubicarse en la raíz del proyecto**.  
+3. **Construir la imagen de Docker**:  
+   ```bash
+   docker build . -t fruits
+   ```
+4. **Ejecutar el contenedor**:  
+   ```bash
+   docker run -p 5173:5173 fruits
+   ```
 
 ---
 
-## Mejoras propuestas  
+## Mejoras propuestas para la landing page
 
-- **Sumatoria en la tabla "General Information"**: Implementar el cálculo automático de la suma de los productos visibles en la paginación.  
+- **Corrección de la sumatoria en la tabla "General Information"**: Ajustar el cálculo automático para que solo contemple los productos visibles en la paginación actual.  
 - **Persistencia del botón "Me gusta"**: Mantener el estado del botón incluso después de recargar la página.  
 - **Modo oscuro/claro**: Agregar un selector para mejorar la experiencia del usuario.  
-- **Mejoras en accesibilidad**: Aplicar estilos optimizados para garantizar la inclusión de todos los usuarios.  
-- **Soporte multilingüe**: Implementar una opción para cambiar el idioma de la aplicación.
+- **Mejoras en accesibilidad**: Optimizar estilos para garantizar la inclusión de todos los usuarios.  
+- **Soporte multilingüe**: Implementar una opción para cambiar el idioma de la aplicación.  
