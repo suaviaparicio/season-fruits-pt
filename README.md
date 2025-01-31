@@ -1,3 +1,7 @@
+![Screenshot 2025-01-31 at 9 55 01 AM](https://github.com/user-attachments/assets/0e63b895-1ac2-4e2b-82eb-1a90ceaac530)
+
+
+
 # Season Fruits - Landing Page  
 
 ## Tabla de Contenidos  
